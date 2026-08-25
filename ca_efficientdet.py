@@ -781,7 +781,7 @@ class EfficientDet(nn.Module):
         self.backbone = create_model(
             config.backbone_name,
             features_only=True,
-            out_indices=self.config.backbone_indices or (2, 3, 4),
+            out_indices=self.config.backbone_indices or (1, 2, 3, 4),
             pretrained=pretrained_backbone,
             **config.backbone_args,
         )
