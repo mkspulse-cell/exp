@@ -786,6 +786,11 @@ class EfficientDet(nn.Module):
             **config.backbone_args,
         )
         feature_info = get_feature_info(self.backbone)
+
+        print("=== Backbone Feature Info ===")
+        for i, info in enumerate(feature_info):
+            print(i, info)
+        
         self.fpn = BiFpn(self.config, feature_info)
         self.class_net = HeadNet(self.config, num_outputs=self.config.num_classes)
         self.box_net = HeadNet(self.config, num_outputs=4)
